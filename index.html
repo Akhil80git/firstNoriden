@@ -1,1 +1,276 @@
-noridexon
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteTrader | Trade Your Thoughts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <span>NoteTrader</span>
+                </div>
+                <div class="market-status">
+                    <span class="status-indicator active"></span>
+                    <span>LIVE</span>
+                    <span id="current-time">09:15:42</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search notes, tags...">
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="btn btn-primary" id="new-note-btn">
+                    <i class="fas fa-plus"></i> New Note
+                </button>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="Profile">
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Left Sidebar -->
+            <aside class="sidebar-left">
+                <div class="sidebar-menu">
+                    <div class="menu-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-sticky-note"></i>
+                        <span>My Notes</span>
+                        <span class="badge">24</span>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-star"></i>
+                        <span>Watchlist</span>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-tags"></i>
+                        <span>Categories</span>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Daily Routine</span>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Analytics</span>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                </div>
+                
+                <div class="portfolio-summary">
+                    <h3>Note Portfolio</h3>
+                    <div class="portfolio-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Total Notes</span>
+                            <span class="metric-value">147</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Active</span>
+                            <span class="metric-value up">32</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Completed</span>
+                            <span class="metric-value down">115</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center Content - Note Market -->
+            <main class="note-market">
+                <div class="market-header">
+                    <div class="market-tabs">
+                        <button class="tab-btn active">All Notes</button>
+                        <button class="tab-btn">Today's Tasks</button>
+                        <button class="tab-btn">Priority</button>
+                        <button class="tab-btn">Personal</button>
+                        <button class="tab-btn">Work</button>
+                    </div>
+                    <div class="market-controls">
+                        <div class="view-toggle">
+                            <button class="view-btn active"><i class="fas fa-table"></i></button>
+                            <button class="view-btn"><i class="fas fa-chart-line"></i></button>
+                            <button class="view-btn"><i class="fas fa-grip-vertical"></i></button>
+                        </div>
+                        <div class="sort-filter">
+                            <select>
+                                <option>Sort by: Priority</option>
+                                <option>Sort by: Recent</option>
+                                <option>Sort by: Due Date</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="market-indices">
+                    <div class="index-card">
+                        <span class="index-name">Productivity</span>
+                        <span class="index-value">78.42</span>
+                        <span class="index-change up">+2.14%</span>
+                    </div>
+                    <div class="index-card">
+                        <span class="index-name">Completion</span>
+                        <span class="index-value">65.23</span>
+                        <span class="index-change down">-1.07%</span>
+                    </div>
+                    <div class="index-card">
+                        <span class="index-name">Creativity</span>
+                        <span class="index-value">84.56</span>
+                        <span class="index-change up">+3.22%</span>
+                    </div>
+                    <div class="index-card">
+                        <span class="index-name">Efficiency</span>
+                        <span class="index-value">72.89</span>
+                        <span class="index-change up">+0.89%</span>
+                    </div>
+                </div>
+
+                <div class="note-grid">
+                    <!-- Notes will be dynamically inserted here -->
+                </div>
+            </main>
+
+            <!-- Right Sidebar - Note Details -->
+            <aside class="sidebar-right">
+                <div class="note-detail-header">
+                    <h3>Note Details</h3>
+                    <div class="detail-actions">
+                        <button class="icon-btn"><i class="fas fa-edit"></i></button>
+                        <button class="icon-btn"><i class="fas fa-trash"></i></button>
+                        <button class="icon-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+                
+                <div class="note-detail-content">
+                    <div class="empty-state">
+                        <i class="fas fa-sticky-note"></i>
+                        <p>Select a note to view details</p>
+                    </div>
+                </div>
+                
+                <div class="note-activity">
+                    <h4>Note Activity</h4>
+                    <div class="activity-timeline">
+                        <div class="empty-state">
+                            <i class="fas fa-history"></i>
+                            <p>No activity to show</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Note Editor Modal -->
+        <div class="modal-overlay" id="note-editor-modal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3>New Note</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="note-title" placeholder="Note title...">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="note-content" placeholder="Write your note here..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Priority</label>
+                            <select class="form-control" id="note-priority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                                <option value="critical">Critical</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="form-control" id="note-category">
+                                <option value="personal">Personal</option>
+                                <option value="work">Work</option>
+                                <option value="ideas">Ideas</option>
+                                <option value="tasks">Tasks</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <div class="tags-input">
+                            <input type="text" id="note-tags" placeholder="Add tags...">
+                            <div class="tags-container"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="datetime-local" class="form-control" id="note-due-date">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary modal-close">Cancel</button>
+                    <button class="btn btn-primary" id="save-note">Save Note</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification Center -->
+        <div class="notification-center">
+            <div class="notification-header">
+                <h4>Notifications</h4>
+                <span class="notification-count">3</span>
+                <button class="icon-btn" id="clear-notifications">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="notification-list">
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <i class="fas fa-check-circle success"></i>
+                    </div>
+                    <div class="notification-content">
+                        <p>Note "Project Ideas" completed</p>
+                        <small>2 minutes ago</small>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <i class="fas fa-exclamation-circle warning"></i>
+                    </div>
+                    <div class="notification-content">
+                        <p>High priority note "Meeting Notes" needs attention</p>
+                        <small>15 minutes ago</small>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <i class="fas fa-info-circle info"></i>
+                    </div>
+                    <div class="notification-content">
+                        <p>New feature: Daily Routine Tracker</p>
+                        <small>1 hour ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
